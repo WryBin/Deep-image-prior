@@ -13,7 +13,7 @@ from skimage.measure import compare_psnr
 from models.downsampler import Downsampler
 
 from models import *
-fomr utils.sr_utils import *
+from utils.sr_utils import *
 
 
 torch.backends.cudnn.enabled = True
@@ -62,7 +62,7 @@ factor = 4  # downscaling factor
 enforse_div32 = 'CROP'
 path_to_image = 'data/sr/zebra_GT.png'
 
-PLOT = TRUE
+PLOT = True
 
 imgs = load_LR_HR_imgs_sr(path_to_image, imsize, factor, enforse_div32)
 imgs['bicubic_np'], imgs['sharp_np'], imgs['nearest_np'] = get_baselines(imgs['LR_pil'], imgs['HR_pil'])

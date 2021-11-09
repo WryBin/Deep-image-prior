@@ -47,7 +47,7 @@ def get_image(path, imsize=-1):
     return img, img_np
 
 
-def get_image_grid(images_np, nrow=8)
+def get_image_grid(images_np, nrow=8):
     """Creates a grid from a list of images by concateanting them"""
 
     images_torch = [torch.from_numpy(x) for x in images_np]
@@ -55,7 +55,7 @@ def get_image_grid(images_np, nrow=8)
 
     return torch_grid.numpy()
 
-def plot_image_grid(images_np, nrow = )
+def plot_image_grid(images_np, nrow=8, factor=1, interpolation='lanczos'):
     """Draws images in a grid
 
     Args:
@@ -107,7 +107,7 @@ def get_noise(input_depth, method, spatial_size, noise_type='u', var=1./10):
     if isinstance(spatial_size, int):
         spatial_size = (spatial_size, spatial_size)
 
-    if method = 'noise':
+    if method == 'noise':
         shape = [1, input_depth, spatial_size[0], spatial_size[1]]
         net_input = torch.zeros(shape)
         fill_noise(net_input, noise_type)
